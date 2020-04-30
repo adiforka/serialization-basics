@@ -19,7 +19,7 @@ public class SerializationEngine {
     }
 
     public void serialize(List<Dude> dudes) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
 
             oos.writeObject(dudes);
 
@@ -32,7 +32,7 @@ public class SerializationEngine {
 
         List<Dude> dudes = null;
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
 
             dudes = (List<Dude>)ois.readObject();
 
