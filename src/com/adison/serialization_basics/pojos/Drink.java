@@ -15,4 +15,9 @@ public abstract class Drink implements Serializable {
     public String getDrinkName() {
         return drinkName;
     }
+
+    @Override
+    public String toString() {
+        return drinkName;
+    }
 }

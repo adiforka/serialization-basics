@@ -1,9 +1,6 @@
 package com.adison.serialization_basics;
 
-import com.adison.serialization_basics.pojos.Beer;
-import com.adison.serialization_basics.pojos.Coffee;
-import com.adison.serialization_basics.pojos.Dude;
-import com.adison.serialization_basics.pojos.OrangeJuice;
+import com.adison.serialization_basics.pojos.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +9,18 @@ import java.util.Optional;
 public class AppMain {
     public static void main(String[] args) {
 
+        Drink sodaPop = new SodaPop();
+        Drink beer = new Beer();
+        Drink oj = new OrangeJuice();
+        Drink coffee = new Coffee();
+
         Dude d1 = Dude.builder()
                 .firstName("Charlie")
                 .lastName("Sheen")
                 .nickName("Wild Dog")
                 .occupation("Self-entertainer")
-                .favoriteDrink(new Beer())
+                .addFavoriteDrink(beer)
+                .addFavoriteDrink(sodaPop)
                 .build();
 
         Dude d2 = Dude.builder()
@@ -25,7 +28,8 @@ public class AppMain {
                 .lastName("Carter")
                 .nickName("The Missle")
                 .occupation("Ex president")
-                .favoriteDrink(new Coffee())
+                .addFavoriteDrink(coffee)
+                .addFavoriteDrink(oj)
                 .build();
 
         Dude d3 = Dude.builder()
@@ -33,7 +37,8 @@ public class AppMain {
                 .lastName("Jackson")
                 .nickName("The Loner")
                 .occupation("Accountant")
-                .favoriteDrink(new OrangeJuice())
+                .addFavoriteDrink(oj)
+                .addFavoriteDrink(beer)
                 .build();
 
         List<Dude> dudes = new ArrayList<>();
