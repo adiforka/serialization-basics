@@ -12,9 +12,29 @@ import java.util.Optional;
 public class AppMain {
     public static void main(String[] args) {
 
-        Dude d1 = new Dude("Jimmy", "Carter", new Beer());
-        Dude d2 = new Dude("Steve", "McGregor", new OrangeJuice());
-        Dude d3 = new Dude("Sammy", "Hagar", new Coffee());
+        Dude d1 = Dude.builder()
+                .firstName("Charlie")
+                .lastName("Sheen")
+                .nickName("Wild Dog")
+                .occupation("Self-entertainer")
+                .favoriteDrink(new Beer())
+                .build();
+
+        Dude d2 = Dude.builder()
+                .firstName("Jimmy")
+                .lastName("Carter")
+                .nickName("The Missle")
+                .occupation("Ex president")
+                .favoriteDrink(new Coffee())
+                .build();
+
+        Dude d3 = Dude.builder()
+                .firstName("Amanda")
+                .lastName("Jackson")
+                .nickName("The Loner")
+                .occupation("Accountant")
+                .favoriteDrink(new OrangeJuice())
+                .build();
 
         List<Dude> dudes = new ArrayList<>();
         dudes.add(d1);
